@@ -11,13 +11,13 @@ namespace CategoryTree
         private bool hasParent;
 
         // Contains the children of the node (zero or more)
-        private List<TreeNode<T>> children;
+        public List<TreeNode<T>> Childrens { get; }
 
         /// <summary>The value of the node</summary>
         public T Value { get; set; }
 
         /// <summary>The number of node's children</summary>
-        public int ChildrenCount { get { return children.Count; } }
+        public int ChildrenCount { get { return Childrens.Count; } }
 
         /// <summary>Constructs a tree node</summary>
         /// <param name="value">the value of the node</param>
@@ -28,7 +28,7 @@ namespace CategoryTree
                 throw new ArgumentNullException("Cannot insert null value!");
             }
             Value = value;
-            children = new List<TreeNode<T>>();
+            Childrens = new List<TreeNode<T>>();
         }
 
         /// <summary>Adds child to the node</summary>
@@ -46,7 +46,7 @@ namespace CategoryTree
             }
 
             child.hasParent = true;
-            children.Add(child);
+            Childrens.Add(child);
         }
 
         /// <summary> Gets the child of the node at given index </summary>
@@ -54,7 +54,7 @@ namespace CategoryTree
         /// <returns>the child on the given position</returns>
         public TreeNode<T> GetChild(int index)
         {
-            return children[index];
+            return Childrens[index];
         }
     }
 }
